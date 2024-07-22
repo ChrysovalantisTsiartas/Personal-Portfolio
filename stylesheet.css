@@ -1,0 +1,138 @@
+/* General Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #333;
+}
+
+.navbar-brand {
+  font-size: 1.8em;
+}
+
+header {
+  background-color: #f3eded;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1.8em;
+}
+
+.nav-link:hover {
+  color: #000;
+}
+
+.info-box {
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+body.light-theme {
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+body.light-theme header {
+  background-color: #333;
+  color: #fff;
+}
+
+body.light-theme .nav-link {
+  color: #fff;
+}
+
+body.light-theme .nav-link:hover {
+  color: #000;
+}
+
+body.light-theme .info-box {
+  background-color: #000;
+  color: #fff;
+  border-radius: 20px;
+}
+
+body.light-theme .download-button {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body.light-theme .download-button:hover {
+  background-color: #333;
+}
+
+body.dark-theme {
+  background-color: #1a1a1a;
+  color: #ddd;
+}
+
+body.dark-theme header {
+  background-color: #1a1a1a;
+  color: #ddd;
+}
+
+body.dark-theme .nav-link {
+  color: #ddd;
+}
+
+body.dark-theme .nav-link:hover {
+  color: #1bd12a;
+}
+
+body.dark-theme .info-box {
+  background-color: #fff;
+  color: #000;
+  border-radius: 20px;
+}
+
+body.dark-theme .download-button {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body.dark-theme .download-button:hover {
+  background-color: #ddd;
+}
+
+.container {
+  margin-top: 2rem;
+}
+
+h5, h4, p, h6 {
+  margin-bottom: 2rem;
+}
+
+h4 {
+  font-size: 2.5rem;
+}
+
+p {
+  font-size: 1.5rem;
+  line-height: 2;
+}
+
+h6 {
+  font-size: 1.2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+h5 {
+  font-size: 1.5rem;
+}
+
