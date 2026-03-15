@@ -1,61 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>About — Chrysovalantis Tsiartas</title>
     <link rel="stylesheet" href="stylesheet.css">
-    <title>About - Chrysovalantis Tsiartas</title>
 </head>
+<body>
 
-<body class="light-theme">
-    <header class="bg-dark text-white py-3">
-        <nav class="navbar navbar-expand-lg navbar-dark container">
-            <a class="navbar-brand" href="index.html">Chrys.Tsiar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+    <div class="ambient" aria-hidden="true"></div>
+
+    <header>
+        <nav class="site-nav">
+            <a class="logo" href="index.html">Chrys<span>.</span>Tsiar</a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="github.html">GitHub</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
+            <div class="nav-group">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="github.html">GitHub</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
-                <button id="theme-switcher" class="btn btn-outline-light ml-3">Switch Theme</button>
+                <button class="theme-toggle" id="theme-switcher" aria-label="Toggle theme">
+                    <svg id="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg id="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
             </div>
         </nav>
     </header>
 
-    <div class="container my-4">
-        <div class="text-center">
+    <main class="page-content">
+        <div class="page-header">
             <h1>About Me</h1>
+            <div class="divider"></div>
         </div>
-        <div class="my-4">
-            <p>Welcome to my professional space. I'm Chrysovalantis Tsiartas, a dedicated computer and electronic systems engineer student based in Greece. With a passion for coding and web development, I bring a unique blend of technical skills and creative problem-solving abilities to every project I undertake.</p>
-        </div>
-        <div class="my-4">
-            <p>My journey in the tech world is marked by continuous learning and adaptation. I thrive on challenges and am committed to delivering high-quality results. My approach is driven by curiosity and a relentless pursuit of knowledge.</p>
-        </div>
-        <div class="my-4">
-            <p>If you're looking for a resourceful, innovative, and reliable professional to collaborate with, I'm here to connect. Let's explore new opportunities and create impactful solutions together.</p>
-        </div>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <div class="about-content">
+            <div class="about-block">
+                <p>Welcome to my professional space. I'm Chrysovalantis Tsiartas, a dedicated computer and electronic systems engineering student based in Greece. With a passion for coding and web development, I bring a unique blend of technical skills and creative problem-solving abilities to every project I undertake.</p>
+            </div>
+
+            <div class="about-block">
+                <p>My journey in the tech world is marked by continuous learning and adaptation. I thrive on challenges and am committed to delivering high-quality results. My approach is driven by curiosity and a relentless pursuit of knowledge.</p>
+            </div>
+
+            <div class="about-block">
+                <p>If you're looking for a resourceful, innovative, and reliable professional to collaborate with, I'm here to connect. Let's explore new opportunities and create impactful solutions together.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Chrysovalantis Tsiartas. All rights reserved.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
-
 </html>
