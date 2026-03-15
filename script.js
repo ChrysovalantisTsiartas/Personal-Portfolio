@@ -45,9 +45,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (typedEl) {
         const phrases = [
             'Chrysovalantis Tsiartas',
-            'Developer',
-            'Problem Solver',
-            'Creative Thinker'
+            'Information and Electronic Systems Engineer',
+            'Software Developer',
+            'IT Support Specialist'
         ];
         let phraseIndex = 0;
         let charIndex = 0;
