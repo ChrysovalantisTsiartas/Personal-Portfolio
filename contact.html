@@ -1,69 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
+document.addEventListener('DOMContentLoaded', function () {
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheet.css">
-    <title>Chrysovalantis Tsiartas</title>
-</head>
+    /* ─── Theme Switcher ─── */
+    const switcher = document.getElementById('theme-switcher');
+    const body = document.body;
+    const sunIcon = document.getElementById('theme-icon-sun');
+    const moonIcon = document.getElementById('theme-icon-moon');
 
-<body class="light-theme">
-    <header class="bg-dark text-white py-3">
-        <nav class="navbar navbar-expand-lg navbar-dark container">
-            <a class="navbar-brand" href="index.html">Chrys.Tsiar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="github.html">GitHub</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                </ul>
-                <button id="theme-switcher" class="btn btn-outline-light ml-3">Switch Theme</button>
-            </div>
-        </nav>
-    </header>
-
-    <div class="container my-4">
-        <div class="info-box p-4 shadow-sm">
-            <h2 class="text-center mb-4">Personal Info</h2>
-            <p>
-                <span class="label font-weight-bold">Phone:</span> <span class="copyable" onclick="copyText('+35796233063')">+35796233063</span><br>
-                <span class="label font-weight-bold">Email:</span> <span class="copyable" onclick="copyText('chrysovalantis2@gmail.com')">chrysovalantis2@gmail.com</span><br>
-                <span class="label font-weight-bold">GitHub:</span> <a href="https://github.com/ChrysovalantisTsiartas">My Github</a>
-            </p>
-        </div>
-    </div>
-
-    <script>
-        function copyText(text) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-            alert('Text copied: ' + text);
+    function setTheme(theme) {
+        body.classList.remove('light-theme', 'dark-theme');
+        body.classList.add(theme + '-theme');
+        localStorage.setItem('theme', theme);
+        if (sunIcon && moonIcon) {
+            sunIcon.style.display = theme === 'light' ? 'block' : 'none';
+            moonIcon.style.display = theme === 'dark' ? 'block' : 'none';
         }
-    </script>
+    }
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
-</body>
+    setTheme(localStorage.getItem('theme') || 'dark');
 
-</html>
+    if (switcher) {
+        switcher.addEventListener('click', () => {
+            const current = body.classList.contains('dark-theme') ? 'dark' : 'light';
+            setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+    }
+
+    /* ─── Mobile Menu Toggle ─── */
+    const menuBtn = document.querySelector('.menu-toggle');
+    const navGroup = document.querySelector('.nav-group');
+    if (menuBtn && navGroup) {
+        menuBtn.addEventListener('click', () => {
+            navGroup.classList.toggle('open');
+        });
+        // Close menu when clicking a link
+        navGroup.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => navGroup.classList.remove('open'));
+        });
+    }
+
+    /* ─── Typing Effect (index page only) ─── */
+    const typedEl = document.getElementById('typed-text');
+    const dateEl = document.getElementById('typed-date');
+
+    if (typedEl) {
+        const phrases = [
+            'Chrysovalantis Tsiartas',
+            'Developer',
+            'Problem Solver',
+            'Creative Thinker'
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const current = phrases[phraseIndex];
+
+            if (isDeleting) {
+                typedEl.textContent = current.substring(0, charIndex--);
+            } else {
+                typedEl.textContent = current.substring(0, charIndex++);
+            }
+
+            let delay = isDeleting ? 40 : 80;
+
+            if (!isDeleting && charIndex > current.length) {
+                delay = 2200;
+                isDeleting = true;
+            } else if (isDeleting && charIndex < 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                delay = 400;
+            }
+
+            setTimeout(type, delay);
+        }
+
+        type();
+    }
+
+    if (dateEl) {
+        const now = new Date();
+        dateEl.textContent = now.toLocaleDateString('en-US', {
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+        });
+    }
+
+    /* ─── Copy to Clipboard (contact page) ─── */
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const text = btn.dataset.copy;
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        });
+    });
+});
